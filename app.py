@@ -6,6 +6,7 @@ from flask import Flask, render_template, redirect, flash, request
 from flask_debugtoolbar import DebugToolbarExtension
 
 from models import db, dbx, Pet
+from forms import AddPetForm
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
@@ -31,3 +32,32 @@ def display_pets():
 
     return render_template('homepage.jinja', pets=pets)
 
+
+@app.route("/add", methods=["GET", "POST"])
+def add_pet():
+    """"form for adding pets; handle adding"""
+
+    form = AddPetForm()
+
+    if form.validate_on_submit():
+        name = form.name.data
+        species = form.species.data
+        photo_url = form.photo_url.data
+        age = form.age.data
+        notes = form.notes.data
+
+        new_pet = Pet(
+            name=name,
+            species=species,
+            photo_url=photo_url,
+            age=age,
+            notes=notes)
+
+        db.session.add(new_pet)
+        db.session.commit()
+
+        flash(f'{new_pet.name} has been added to the list!')
+        return redirect("/")
+
+    else:
+        return render_template("form.jinja", form=form)
