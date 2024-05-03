@@ -1,15 +1,15 @@
 """Seed pets db with data"""
 
 from app import app
-from models import db, Pets
+from models import db, Pet
 
 app.app_context().push()
 
 db.drop_all()
 db.create_all()
 
-joe_furrow = Pets(
-    name="joe_furrow",
+joe_furrow = Pet(
+    name="Joe Furrow",
     species="English Long Hair",
     age="baby",
     notes="",
@@ -17,8 +17,8 @@ joe_furrow = Pets(
     photo_url="https://www.dailypaws.com/thmb/qAkdPQG4mKmYYTG4QHtyxUY-Dgo=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/british-longhaired-kitten-107842351-2000-d3b39dfd9db241b09b32ff041a0f0b77.jpg"
 )
 
-patrick_meowhomes = Pets(
-    name="patrick_meowhomes",
+patrick_meowhomes = Pet(
+    name="Patrick Meowhomes",
     species="Siamese",
     age="young",
     notes="",
