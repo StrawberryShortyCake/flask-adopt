@@ -1,0 +1,16 @@
+{% extends 'base.jinja' %}
+
+{% block title %}Adopt-A-Pet{% endblock %}
+
+{% block content %}
+
+{% for pet in pets %}
+<h2>{{ pet.name }}</h2>
+<img src="{{ pet.photo_url }}">
+{% if pet.available%}
+
+<p>Available</p>
+{% endif %}
+{% endfor %}
+
+{% endblock %}

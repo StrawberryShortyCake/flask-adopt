@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>
+    Blogly &ndash; {% block title %}{% endblock %}
+  </title>
+  <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap@5/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container mt-5">
+  {% for msg in get_flashed_messages() %}
+    <div class="alert alert-info">{{ msg }}</div>
+  {% endfor %}
+
+  <div id="page-content">
+    {% block content %}
+      <!-- put the content here -->
+    {% endblock %}
+  </div>
+</div>
+</body>
+</html>
