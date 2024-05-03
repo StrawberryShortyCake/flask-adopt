@@ -7,6 +7,7 @@ executing==2.0.1
 Flask==3.0.3
 Flask-DebugToolbar==0.15.1
 Flask-SQLAlchemy==3.1.1
+Flask-WTF==1.2.1
 greenlet==3.0.3
 ipython==8.24.0
 itsdangerous==2.2.0
@@ -29,3 +30,4 @@ traitlets==5.14.3
 typing_extensions==4.11.0
 wcwidth==0.2.13
 Werkzeug==3.0.2
+WTForms==3.1.2
